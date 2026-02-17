@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --backGround: #0F1117;
+    --PSurface: #161A23;
+    --SSurface: #1E2430;
+    --border: #2A3040;
+    --text: #fff;
+    --timer: #4F6DFF;
+}
+
+body{
+    font-family: "Inter Tight", sans-serif;
+    font-size: 1.4rem;
+    background-color: var(--backGround);
+    color: var(--text);
+    fill: var(--text); 
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 35px auto;
+    font-size: 2rem;
+    border-radius: 5px;
+    background-color: var(--border);
+    padding: 1rem;
+    width: 800px;
+}
+
+main {
+   width: 90%;
+   margin: 35px auto;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+h1 svg {
+    width: 40px;
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 3rem;
+    color: var(--timer);
+}
+
+.quote-input {
+    background: none;
+    border: none;
+    color: var(--text);
+    font-family: "JetBrains Mono", monospace;
+    font-weight: bold;
+    border-color: var(--border);
+    min-width: 400px;
+    width: 100%;
+    max-width: 100%;
+}
