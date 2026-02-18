@@ -68,6 +68,9 @@ refreshBtn.addEventListener('click', function () {
 function resulteScrean() {
     if (!isIntro) {
         main.style.filter = "blur(5px)"
+        main.style.pointerEvents = "none";
+        quoteInput.blur(); 
+        quoteInput.setAttribute("contenteditable", "false"); 
     }
 }
 
