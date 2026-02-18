@@ -64,16 +64,36 @@ h1 svg {
     flex-direction: row;
 }
 
+.start-text {
+    font-size: 0.8rem; /* smaller text */
+    margin-right: 5px; /* space before SVG */
+    font-weight: 500;
+    color: var(--text);
+}
+
 .quote-input {
     min-height: 120px;
     padding: 1rem;
     border-radius: 8px;
     height: 12rem;
     outline: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    white-space: pre-wrap;
     font-family: "JetBrains Mono", monospace;
     background-color: var(--SSurface);
     border: 2px solid transparent;
     transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quote-input::-webkit-scrollbar {
+    width: 6px;
+}
+
+.quote-input::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
 }
 
 .quote-display {
@@ -84,8 +104,6 @@ h1 svg {
 
 .refresh-btn {
     position: absolute;
-    width: 22px;
-    height: 22px;
     top: 15px;
     right: 15px;
     background: none;
@@ -93,14 +111,19 @@ h1 svg {
     font-size: 1.5rem;
     cursor: pointer;
     fill: var(--text);
-    opacity: 0.6;
+    display: flex;
+    align-items: center;
+}
+
+.refresh-btn svg {
+    width: 20px;
+    height: 20px;
+    display: block;
 }
 
 .refresh-btn:hover {
     opacity: 1;
 }
-
-
 
 /* Focus state */
 .quote-input:focus {
