@@ -12,7 +12,9 @@
     --SSurface: #1E2430;
     --border: #2A3040;
     --text: #fff;
+    --incorrect : #E74C3C;
     --timer: #4F6DFF;
+    --corrected: #F1C40F;
 }
 
 body{
@@ -99,7 +101,13 @@ h1 svg {
 .quote-display {
     font-family: "JetBrains Mono", monospace;
     line-height: 1.6;
-    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.quote-display span {
+    display: inline-block;   
+    min-width: 0.6ch;        
+    white-space: pre;
 }
 
 .refresh-btn {
@@ -123,6 +131,20 @@ h1 svg {
 
 .refresh-btn:hover {
     opacity: 1;
+}
+
+.correct {
+    color: var(--text);
+}
+
+.incorrect {
+    color: var(--incorrect);
+    border-bottom: 2px solid var(--incorrect);
+    display: inline-block;
+}
+
+.corrected {
+    color: var(--corrected);
 }
 
 /* Focus state */

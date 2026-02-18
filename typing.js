@@ -25,10 +25,40 @@ function CharacterSplit(name) {
 
 refreshBtn.addEventListener('click', function () {
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-  quoteDisplay.textContent = randomQuote;
-  quoteInput.textContent = null;
+  quoteDisplay.innerHTML = '';
   CharacterSplit(randomQuote)
-  updateRefreshButton(); 
+  quoteInput.textContent = '';
+  updateRefreshButton();
+});
+
+quoteInput.addEventListener('input', function() {
+    const arrayQuote = quoteDisplay.querySelectorAll('span');
+    const arrayValue = quoteInput.textContent.split('');
+
+    arrayQuote.forEach((characterSpan, index) => {
+        const character = arrayValue[index];
+
+        if (character == null) {
+            characterSpan.classList.remove('correct', 'incorrect');
+        } 
+        else if (character === characterSpan.textContent) {
+
+            if (characterSpan.dataset.wasIncorrect === "true") {
+                characterSpan.classList.remove('incorrect');
+                characterSpan.classList.add('corrected');
+            } else {
+                characterSpan.classList.add('correct');
+                characterSpan.classList.remove('incorrect');
+            }
+
+        } 
+        else {
+            characterSpan.classList.add('incorrect');
+            characterSpan.classList.remove('correct', 'corrected');
+
+            characterSpan.dataset.wasIncorrect = "true";
+        }
+    });
 });
 
 
