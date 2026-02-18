@@ -40,6 +40,7 @@ body{
 main {
    width: 90%;
    margin: 35px auto;
+   position: relative;
 }
 
 h1 {
