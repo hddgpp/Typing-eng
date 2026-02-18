@@ -1,11 +1,25 @@
 import quotes from './data.js';
 
+const title = document.querySelector('#title')
 const quoteDisplay = document.querySelector('#quoteDisplay');
 const refreshBtn = document.querySelector('#refreshBtn');
 const quoteInput = document.querySelector('#quoteInput');
 const timer = document.querySelector('#timer');
 const main = document.querySelector('#main')
+
+const resultModal = document.querySelector('#resultModal');
+const resultTime = document.querySelector('#resultTime');
+const resultWpm = document.querySelector('#resultWpm');
+const resultAccuracy = document.querySelector('#resultAccuracy');
+const resultConsistency = document.querySelector('#resultConsistency');
+const resultScore = document.querySelector('#resultScore');
+const restartBtn = document.querySelector('#restartBtn');
+
 let isIntro = true;
+
+title.addEventListener('click', () =>{
+    location.reload();
+})
 
 function updateRefreshButton() {
   if (isIntro) {
@@ -65,13 +79,62 @@ refreshBtn.addEventListener('click', function () {
 });
 
 function resulteScrean() {
-    if (!isIntro) {
-        main.style.filter = "blur(5px)"
-        main.style.pointerEvents = "none";
-        quoteInput.blur(); 
-        quoteInput.setAttribute("contenteditable", "false"); 
-    }
+  if (!isIntro) {
+
+    main.style.filter = "blur(5px)";
+    main.style.pointerEvents = "none";
+    quoteInput.blur();
+    quoteInput.setAttribute("contenteditable", "false");
+
+    const totalTime = parseInt(timer.textContent);
+    const totalChars = quoteDisplay.querySelectorAll('span').length;
+
+    const correctChars = quoteDisplay.querySelectorAll('.correct, .corrected').length;
+    const correctedChars = quoteDisplay.querySelectorAll('.corrected').length;
+
+    const minutes = totalTime / 60;
+
+    const wpm = minutes > 0 
+      ? Math.round((correctChars / 5) / minutes)
+      : 0;
+
+    const accuracy = Math.round((correctChars / totalChars) * 100);
+
+    const consistency = Math.max(
+      0,
+      Math.round(accuracy - (correctedChars / totalChars) * 100)
+    );
+
+    const score = Math.min(
+      100,
+      Math.round(
+        (wpm / 80 * 40) +
+        (accuracy * 0.4) +
+        (consistency * 0.2)
+      )
+    );
+
+    resultTime.textContent = totalTime;
+    resultWpm.textContent = wpm;
+    resultAccuracy.textContent = accuracy + "%";
+    resultConsistency.textContent = consistency + "%";
+    resultScore.textContent = score;
+
+    resultModal.classList.remove('hidden');
+  }
 }
+
+restartBtn.addEventListener('click', () => {
+  resultModal.classList.add('hidden');
+
+  main.style.filter = "none";
+  main.style.pointerEvents = "auto";
+
+  quoteInput.setAttribute("contenteditable", "true");
+
+  refreshBtn.click();
+});
+
 
 quoteInput.addEventListener('input', function () {
 
