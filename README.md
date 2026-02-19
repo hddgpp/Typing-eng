@@ -1,4 +1,4 @@
-# 🚀 TypeSwift – Typing Engine (Foundation Build)
+# TypeSwift – Typing Engine (Foundation Build)
 
 > The first step toward building **TypeSwift** — a modern, competitive typing platform focused on performance, precision, and clean UX.
 
