@@ -113,8 +113,7 @@ This ensures completion is based on input length.
 
 When the test ends, the result modal calculates:
 
-<img width="1919" height="871" alt="image" src="https://github.com/user-attachments/assets/7ae755bb-2210-41d5-b74f-434d43e12451" />
-
+<img width="1919" height="871" alt="image" src="https://github.com/user-attachments/assets/62fcaf4f-22c6-450c-a344-f02de0fcc645" />
 
 #### 🕒 Time
 
