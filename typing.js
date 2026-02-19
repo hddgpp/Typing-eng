@@ -9,6 +9,10 @@ const main = document.querySelector('#main')
 
 const resultModal = document.querySelector('#resultModal');
 const resultTime = document.querySelector('#resultTime');
+const resultTotalChars = document.querySelector('#resultTotalChars');
+const resultCorrectChars = document.querySelector('#resultCorrectChars');
+const resultWrongChars = document.querySelector('#resultWrongChars');
+const resultCorrectedChars = document.querySelector('#resultCorrectedChars');
 const resultWpm = document.querySelector('#resultWpm');
 const resultAccuracy = document.querySelector('#resultAccuracy');
 const resultConsistency = document.querySelector('#resultConsistency');
@@ -89,8 +93,12 @@ function resulteScrean() {
     const totalTime = parseInt(timer.textContent);
     const totalChars = quoteDisplay.querySelectorAll('span').length;
 
-    const correctChars = quoteDisplay.querySelectorAll('.correct, .corrected').length;
+    const correctChars = quoteDisplay.querySelectorAll('.correct').length;
     const correctedChars = quoteDisplay.querySelectorAll('.corrected').length;
+    const wrongChars = quoteDisplay.querySelectorAll('.incorrect').length;
+
+    const totalCorrectIncludingFixed = correctChars + correctedChars;
+
 
     const minutes = totalTime / 60;
 
@@ -119,6 +127,11 @@ function resulteScrean() {
     resultAccuracy.textContent = accuracy + "%";
     resultConsistency.textContent = consistency + "%";
     resultScore.textContent = score;
+    resultTotalChars.textContent = totalChars;
+    resultCorrectChars.textContent = totalCorrectIncludingFixed;
+    resultWrongChars.textContent = wrongChars;
+    resultCorrectedChars.textContent = correctedChars;
+
 
     resultModal.classList.remove('hidden');
   }
