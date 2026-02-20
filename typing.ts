@@ -1,23 +1,23 @@
 import quotes from './data.js';
 
-const title = document.querySelector('#title') as HTMLElement | null
-const quoteDisplay = document.querySelector('#quoteDisplay') as HTMLElement | null
-const refreshBtn = document.querySelector('#refreshBtn') as HTMLElement | null
-const quoteInput = document.querySelector('#quoteInput') as HTMLElement | null
-const timer = document.querySelector('#timer') as HTMLElement | null
-const main = document.querySelector('#main') as HTMLElement | null
+const title = document.querySelector<HTMLElement>('#title') 
+const quoteDisplay = document.querySelector<HTMLElement>('#quoteDisplay') 
+const refreshBtn = document.querySelector<HTMLElement>('#refreshBtn') 
+const quoteInput = document.querySelector<HTMLElement>('#quoteInput') 
+const timer = document.querySelector<HTMLElement>('#timer') 
+const main = document.querySelector<HTMLElement>('#main') 
 
-const resultModal = document.querySelector('#resultModal') as HTMLElement | null
-const resultTime = document.querySelector('#resultTime') as HTMLElement | null
-const resultTotalChars = document.querySelector('#resultTotalChars') as HTMLElement | null
-const resultCorrectChars = document.querySelector('#resultCorrectChars') as HTMLElement | null
-const resultWrongChars = document.querySelector('#resultWrongChars') as HTMLElement | null
-const resultCorrectedChars = document.querySelector('#resultCorrectedChars') as HTMLElement | null
-const resultWpm = document.querySelector('#resultWpm') as HTMLElement | null
-const resultAccuracy = document.querySelector('#resultAccuracy') as HTMLElement | null
-const resultConsistency = document.querySelector('#resultConsistency') as HTMLElement | null
-const resultScore = document.querySelector('#resultScore') as HTMLElement | null
-const restartBtn = document.querySelector('#restartBtn') as HTMLElement | null
+const resultModal = document.querySelector<HTMLElement>('#resultModal') 
+const resultTime = document.querySelector<HTMLElement>('#resultTime') 
+const resultTotalChars = document.querySelector<HTMLElement>('#resultTotalChars') 
+const resultCorrectChars = document.querySelector<HTMLElement>('#resultCorrectChars') 
+const resultWrongChars = document.querySelector<HTMLElement>('#resultWrongChars') 
+const resultCorrectedChars = document.querySelector<HTMLElement>('#resultCorrectedChars') 
+const resultWpm = document.querySelector<HTMLElement>('#resultWpm') 
+const resultAccuracy = document.querySelector<HTMLElement>('#resultAccuracy') 
+const resultConsistency = document.querySelector<HTMLElement>('#resultConsistency') 
+const resultScore = document.querySelector<HTMLElement>('#resultScore') 
+const restartBtn = document.querySelector<HTMLElement>('#restartBtn') 
 
 let isIntro = true;
 
