@@ -22,6 +22,9 @@ It implements:
 
 This version focuses on building a **robust engine architecture** before expanding into full product features.
 
+<img width="1919" height="880" alt="image" src="https://github.com/user-attachments/assets/4f044230-7ff3-432b-bf6f-4c254b1acd0a" />
+
+
 ---
 
 ## 🎯 Purpose
@@ -109,6 +112,8 @@ This ensures completion is based on input length.
 ### 4️ Metrics Calculation
 
 When the test ends, the result modal calculates:
+
+<img width="1919" height="871" alt="image" src="https://github.com/user-attachments/assets/62fcaf4f-22c6-450c-a344-f02de0fcc645" />
 
 #### 🕒 Time
 
@@ -204,6 +209,9 @@ This ensures:
 * No ghost timers or residual state
 
 ---
+
+<img width="1919" height="883" alt="image" src="https://github.com/user-attachments/assets/fda7030b-d641-4acb-9ca5-58b185d8e579" />
+
 
 ## 🎨 UI & Design
 
