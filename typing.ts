@@ -75,30 +75,44 @@ function startTimer() {
   }, 1000);
 }
 
-refreshBtn.addEventListener('click', function () {
+if(refreshBtn) {
+  refreshBtn.addEventListener('click', function () {
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
-  quoteDisplay.innerHTML = '';
+  if(quoteDisplay) {
+    quoteDisplay.innerHTML = '';
+  }
   characterSplit(randomQuote);
 
-  quoteInput.textContent = '';
+  if(quoteInput) {
+    quoteInput.textContent = '';
+  }
 
   clearInterval(timerInterval);
-  timer.textContent = '0';
+  if(timer) {
+    timer.textContent = '0';
+  }
   timerStarted = false;
 
   isIntro = false;
 
   updateRefreshButton();
 });
+}
 
 function resulteScrean() {
   if (!isIntro) {
 
-    main.style.filter = "blur(5px)";
-    main.style.pointerEvents = "none";
-    quoteInput.blur();
-    quoteInput.setAttribute("contenteditable", "false");
+    if(main) {
+      main.style.filter = "blur(5px)";
+      main.style.pointerEvents = "none";
+    }
+    if(quoteInput) {
+      quoteInput.blur();
+      quoteInput.setAttribute("contenteditable", "false");
+    }
+
+    if(!quoteDisplay || !timer) return;
 
     const totalTime = parseInt(timer.textContent);
     const totalChars = quoteDisplay.querySelectorAll('span').length;
@@ -132,22 +146,28 @@ function resulteScrean() {
       )
     );
 
-    resultTime.textContent = totalTime;
-    resultWpm.textContent = wpm;
+   if(!resultTime || !resultWpm || !resultAccuracy || !resultConsistency || !resultScore || !resultTotalChars ||
+     !resultCorrectChars || !resultWrongChars || !resultCorrectedChars || !resultModal) return;
+
+
+    resultTime.textContent = totalTime.toString();
+    resultWpm.textContent = wpm.toString();
     resultAccuracy.textContent = accuracy + "%";
     resultConsistency.textContent = consistency + "%";
-    resultScore.textContent = score;
-    resultTotalChars.textContent = totalChars;
-    resultCorrectChars.textContent = totalCorrectIncludingFixed;
-    resultWrongChars.textContent = wrongChars;
-    resultCorrectedChars.textContent = correctedChars;
+    resultScore.textContent = score.toString();
+    resultTotalChars.textContent = totalChars.toString();
+    resultCorrectChars.textContent = totalCorrectIncludingFixed.toString();
+    resultWrongChars.textContent = wrongChars.toString();
+    resultCorrectedChars.textContent = correctedChars.toString();
 
 
     resultModal.classList.remove('hidden');
   }
 }
 
-restartBtn.addEventListener('click', () => {
+if(restartBtn) {
+  restartBtn.addEventListener('click', () => {
+    if(!resultModal ||! main || !quoteInput || !refreshBtn) return;
   resultModal.classList.add('hidden');
 
   main.style.filter = "none";
@@ -157,13 +177,16 @@ restartBtn.addEventListener('click', () => {
 
   refreshBtn.click();
 });
+}
 
 
-quoteInput.addEventListener('input', function () {
+if(quoteInput) {
+  quoteInput.addEventListener('input', function () {
 
   // Remove hidden line breaks from contenteditable
   const inputText = quoteInput.textContent.replace(/\n/g, '');
   const arrayValue = inputText.split('');
+  if(!quoteDisplay) return;
   const arrayQuote = quoteDisplay.querySelectorAll('span');
 
   if (!timerStarted && inputText.length === 1) {
@@ -207,5 +230,6 @@ quoteInput.addEventListener('input', function () {
   } 
     
 });
+}
 
 updateRefreshButton();
