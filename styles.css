@@ -282,7 +282,6 @@ h1 svg {
 
 .restart-btn:hover {
   background: var(--border);
-  transform: translateY(-2px);
 }
 
 
